@@ -1,0 +1,66 @@
+Ocaml 2013
+
+1. Fonctions et Types
+---------------------
+
+Question 1
+
+a) let c f x y = f (x,y);;
+	 # val c : ('a * 'b -> 'c) -> 'a -> 'b -> 'c = <fun>
+
+b) let rec split = function
+     | [] -> [],[]
+     | (x,y)::t1 -> let t1,t2 =split t1 in (x::t1),(y::t2);;
+   # val split : ('a * 'b) list -> 'a list * 'b list = <fun>
+
+Question 2
+
+a) let u f (x,y) = f x y;;
+
+b) let cmp f g x = f (g x);;
+
+c) let f (g,x) y = g y;;
+
+--------------------------------------------------
+
+2. Flots
+--------
+
+Question 3
+
+"lesent 0" écrirait une suite infinie 0,1,2,3... Cependandant, le flot n'est pas lu car on ne l'affiche pas.
+
+Question 4
+
+"map_paresse_1 succ (lesents 0)" écrirait une suite infinie 1,2,3,4... Cependandant, le flot n'est pas lu car on ne l'affiche pas.
+
+Question 5
+
+--------------------------------------------------
+
+3. Arbres binaires annotés
+--------------------------
+
+Question 6
+
+type ('a, 'b) tree =
+  | Emp of 'a
+  | Leaf of 'a * 'b
+  | Node of 'a * ('a, 'b) tree * ('a, 'b) tree;;
+
+Question 7
+
+type ('a, 'b) tree =
+  | Emp of 'a
+  | Leaf of 'a * 'b
+  | Node of 'a * ('a, 'b) tree * ('a, 'b) tree;;
+
+Question 8
+
+let rec tolist = function
+  | Emp(_) -> []
+  | Leaf(_,y) -> [y]
+  | Node(_,t1,t2) -> (tolist t1)@(tolist t2);;
+
+
+
